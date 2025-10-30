@@ -1,4 +1,31 @@
-p{
-    color: red;
-
+:root {
+    --header-color:#ffffff;
+    --bg-color:#4CA7C0;
+}
+body {
+    background-color: var(--bg-color);
+    
+}
+@import url(https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kavoon&display=swap);
+@font-face {
+  font-family: 'Kavoon';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/kavoon/v25/pxiFyp4_scRYhlUIPbD7T1o.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+h1{
+    font-family: 'kavoon';
+    font-size: 3em;
+}
+h2{
+    font-family: 'kavoon';
+    font-size: 2em;
+}
+h3{
+    font-size: 1.5em;
+}
+h4{
+    font-size: 1.15em;
 }
