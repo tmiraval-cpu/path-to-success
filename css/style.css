@@ -29,27 +29,198 @@ h3{
 h4{
     font-size: 1.15em;
 }
-/* center entire page content */
-html, body {
-    height: 100%;
-    margin: 0;
+/* Layout: centered page wrapper and content box */
+.page-wrapper {
+    min-height: 100vh; /* full viewport height */
+    display: flex;
+    justify-content: center; /* horizontal center */
+    align-items: flex-start;  /* change to center to vertically center */
+    padding: 2.5rem 1rem;
     box-sizing: border-box;
 }
-body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;       /* horizontal center */
-    justify-content: center;   /* vertical center */
+
+.center-column {
+    width: 100%;
+    max-width: 1000px; /* change as needed */
+    background: transparent; /* keep page-level background visible; sections get their own cards */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(2,6,23,0.12);
+    box-sizing: border-box;
+    text-align: center; /* center all text inside the box */
+    margin: 0.5rem;
+}
+
+/* Make images centered inside the container */
+.center-column img {
+    display: block;
+    margin: 0.75rem auto;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Improve spacing for stacked children */
+.center-column > * + * {
+    margin-top: 1rem;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+    .center-column {
+        padding: 1rem;
+        border-radius: 8px;
+    }
+}
+
+/* Optional: style links inside the container */
+.center-column a {
+    color: #0b5b8a;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.center-column a:hover {
+    text-decoration: underline;
+}
+
+/* Make each section look like its own card */
+.center-column section {
+    background: #484FB7; /* requested purple */
+    padding: 1.25rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(2,6,23,0.06);
+    margin: 0 0 1rem 0; /* spacing between cards */
     text-align: center;
+    border: 1px solid rgba(0,0,0,0.08);
+    color: #ffffff; /* ensure text is readable on purple */
+}
+
+.center-column section h1,
+.center-column section h2,
+.center-column section h3,
+.center-column section h4 {
+    margin: 0.25rem 0 0.5rem 0;
+}
+
+/* Tables: make them responsive inside sections */
+.center-column section .table-wrap {
+    overflow-x: auto;
+}
+
+.center-column section table {
+    width: 100%;
+    border-collapse: collapse;
+    /* outer border to frame the table */
+    border: 1px solid rgba(255,255,255,0.12);
+}
+
+.center-column section th,
+.center-column section td {
+    padding: 0.5rem 0.75rem;
+    text-align: center;
+    /* cell borders for clearer grid look */
+    border: 1px solid rgba(255,255,255,0.06);
+    color: #ffffff;
+}
+
+.center-column section th {
+    font-weight: 700;
+}
+
+@media (min-width: 700px) {
+    .center-column section {
+        padding: 1.5rem 2rem;
+    }
+}
+
+/* Make the second section use the requested color #E9BB57
+   and use dark text/links for contrast. This targets the
+   second section inside .center-column in document order. */
+.center-column section:nth-of-type(2) {
+    background: #E9BB57;
+    color: #1b1b1b; /* dark text for readability */
+    border: 1px solid rgba(0,0,0,0.08);
+}
+
+.center-column section:nth-of-type(2) a {
+    color: #0b2b3a; /* dark-ish link color */
+}
+
+.center-column section:nth-of-type(2) th,
+.center-column section:nth-of-type(2) td {
+    color: #1b1b1b;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.center-column section:nth-of-type(2) img {
+    /* if images have white backgrounds, ensure they don't appear odd */
+    filter: none;
+}
+
+/* Make section 7 (#whychooseus) and section 9 (#takethefirststeptoday) use #D9526F */
+.center-column #whychooseus,
+.center-column #takethefirststeptoday {
+    background: #D9526F;
+    color: #ffffff;
+    border: 1px solid rgba(0,0,0,0.06);
+}
+
+.center-column #whychooseus a,
+.center-column #takethefirststeptoday a {
+    color: rgba(255,255,255,0.95);
+}
+
+.center-column #whychooseus li,
+.center-column #takethefirststeptoday li,
+.center-column #whychooseus p,
+.center-column #takethefirststeptoday p {
+    color: #ffffff;
+}
+
+/* Make table borders dark for the light-colored sections for contrast */
+.center-column #whychooseus table,
+.center-column #takethefirststeptoday table {
+    border: 1px solid rgba(0,0,0,0.08);
+}
+.center-column #whychooseus th,
+.center-column #takethefirststeptoday th,
+.center-column #whychooseus td,
+.center-column #takethefirststeptoday td {
+    border: 1px solid rgba(0,0,0,0.06);
+    color: #ffffff; /* keep text white on these cards */
+}
+
+/* Remove default bullets and tighten list spacing inside the center column */
+.center-column ul {
+    list-style: none; /* no bullets */
+    padding-left: 0;  /* remove default left padding */
+    margin: 0.5rem 0;  /* spacing around the list */
+}
+
+.center-column li {
+    margin: 0.35rem 0; /* spacing between list items */
+    padding-left: 0;
+    text-align: center; /* keep list text centered with the card */
+}
+
+/* Links - made light for contrast on purple */
+.center-column a {
+    color: rgba(255,255,255,0.95);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.center-column a:hover {
+    text-decoration: underline;
+}
+
+/* If you prefer the menu items inline (horizontal), uncomment below */
+/*
+#menu ul {
+    display: inline-flex;
     gap: 1rem;
+    padding-left: 0;
 }
-section {
-    <p align=justify style="background-color:#02f3e5;
-    border-radius:4px;
-    font-size:16px;
-    padding:15px;
-    margin:5px;"><b>
-    This is a Sample Textbox</b>
-    </p>
-}
+#menu li { margin: 0; }
+*/
+
